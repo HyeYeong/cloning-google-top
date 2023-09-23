@@ -8,6 +8,12 @@ html,
 body {
   width: 100%;
   height: 100%;
+  position: relative;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
 }
 
 #root {
