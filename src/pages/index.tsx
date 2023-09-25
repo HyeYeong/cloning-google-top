@@ -4,12 +4,13 @@ import { BadgeIcons } from "@/src/components/organisms/BadgeIcons"
 import { SearchInput } from "@/src/components/molecules/SearchInput"
 import { NavigationTop } from "@/src/components/organisms/NavigationTop"
 import { Image, Text } from '@chakra-ui/react'
+import { IMAGE_URL } from '@/src/constansts/index'
 
 export default function Home() {
   return (
     <div>
       <Head>
-        <title>study-recoil</title>
+        <title>Search Movie App</title>
       </Head>
       <main>
         <Box bgColor={'#eee'} w='100%' h='100%' position={'relative'} display={'block'}>
@@ -21,7 +22,7 @@ export default function Home() {
               alt="logo"
               w='272px'
               h='92px'
-              src='https://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png'
+              src={`${IMAGE_URL}googleLogo.png`}
             />
             <Text color="#34a853" fontWeight={'600'} ml="20px" fontSize={'5rem'}>Movie</Text>
           </Center>
