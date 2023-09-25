@@ -1,9 +1,11 @@
-import { BadgeIcon } from "@/src/components/atoms/BadgeIcon"
+import { userState } from '@/src/recoil/user/atoms';
+import { useRecoilState } from 'recoil';
 import { Wrap } from '@chakra-ui/layout';
 import { Link, Avatar, MenuGroup, MenuList, MenuDivider, MenuItem, MenuButton, Menu, IconButton } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 
 export const NavigationTop = () => {
+  const [userName] = useRecoilState(userState)
 
   return (
       <nav>
@@ -38,13 +40,13 @@ export const NavigationTop = () => {
             <MenuButton
               as={IconButton}
               aria-label='profile menu'
-              icon={<Avatar boxSize='32px' name='HyeYeongLee' src='https://bit.ly/broken-link' />}
+              icon={<Avatar boxSize='32px' name={userName} src='https://bit.ly/broken-link' />}
             />
             <MenuList>
-              <MenuGroup title='HyeYeongLee@gmail.com'>
+              <MenuGroup title={`${userName}@gmail.com`}>
                 <MenuItem>profile Icon</MenuItem>
                 <MenuItem>manage your Google Account</MenuItem>
-                <MenuItem>Hi, HyeYeongLee !</MenuItem>
+                <MenuItem>Hi, {userName} !</MenuItem>
               </MenuGroup>
               <MenuDivider />
               <MenuGroup>
