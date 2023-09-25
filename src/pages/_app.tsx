@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import GlobalStyle from '@src/styles/globalStyle';
+import GlobalStyle from '@/src/styles/globalStyle';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
 import { ChakraProvider } from '@chakra-ui/react';
