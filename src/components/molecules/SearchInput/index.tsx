@@ -14,7 +14,7 @@ export const SearchInput = () => {
         bgColor={'#fff'}
         boxShadow={'rgba(0, 0, 0, 0.1) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 3px 3px'}
         padding={'20px'}
-        placeholder='Search Google or Type a URL'
+        placeholder='Search Movie name or anything URL'
         _placeholder={{ opacity: 1, color: 'gray.700' }}
       />
     </Box>
