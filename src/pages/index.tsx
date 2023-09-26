@@ -6,29 +6,8 @@ import { SearchInput } from "@/src/components/molecules/SearchInput"
 import { NavigationTop } from "@/src/components/organisms/NavigationTop"
 import { Image, Text } from '@chakra-ui/react'
 import { IMAGE_URL } from '@/src/constansts/index'
+import { GET_MOVIE } from '@/src/queries/movies/queries'
 import { initializeApollo } from '@/libs/apolloClient'
-
-import { useQuery, useMutation, gql } from '@apollo/client';
-const Movies = gql`
-  fragment movie on Movies {
-    id
-    url
-    title
-    title_english
-    year
-    genres
-  }
-`
-
-const GET_MOVIE = gql`
-  query GetMovie {
-    data {
-      movies {
-        ${Movies}
-      }
-    }
-  }
-`;
 
 export const Home: NextPage = ({data}) => {
 
