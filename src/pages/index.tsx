@@ -5,13 +5,21 @@ import { BadgeIcons } from "@/src/components/organisms/BadgeIcons"
 import { SearchInput } from "@/src/components/molecules/SearchInput"
 import { NavigationTop } from "@/src/components/organisms/NavigationTop"
 import { Image, Text } from '@chakra-ui/react'
-import { IMAGE_URL } from '@/src/constansts/index'
+import { IMAGE_URL } from '@/src/constants'
+import { MoviesDataType } from '@/src/constants/datas'
 import { GET_MOVIE } from '@/src/queries/movies/queries'
 import { initializeApollo } from '@/libs/apolloClient'
 
-export const Home: NextPage = ({data}) => {
+interface Props {
+  data: MoviesDataType
+}
 
-  console.log(data)
+export const Home: NextPage<Props> = ({data}) => {
+
+  console.log(data.movies.map(item => item.title))
+
+  if (!data) return <p className="error">Error :(</p>
+
   return (
     <div>
       <Head>
@@ -48,13 +56,13 @@ export default Home
 export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo()
 
-  const { data, errors } = await apolloClient.query({
+  const { data } = await apolloClient.query({
     query: GET_MOVIE,
   })
 
   return {
     props: {
-      data: data.movies || {},
+      data: data || {},
     },
   }
 }
